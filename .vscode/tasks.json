@@ -1,0 +1,31 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc.exe 生成活动文件",
+            "command": "D:\\ProgramData\\mingw64\\bin\\gcc.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/test/test.c",   //workspaceFolder它包含了test子目录，workspaceFolder并不是指test这个子目录
+                "${workspaceFolder}/easytlv.c", // 添加这一行来编译easytlv.c
+                "-I", "${workspaceFolder}/test/", // 添加头文件目录，添加easytlv_debug.h
+                "-I", "${workspaceFolder}", // 添加头文件目录， ----- 如果是库文件.a/.so，则"-L", "${workspaceFolder}/lib", "-leasytlv", //lib是子目录，-l加easytlv链接的库名，即去掉库文件前面的"lib"和库文件后面的".a/.so"
+                "-o",
+                "${workspaceFolder}/test/test.exe"   //如果需要改成"${workspaceFolder}/test.exe"，还需要修改launch.json里面的 "cwd"和"program"的fileDirname改成${workspaceFolder}
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "调试器生成的任务。"
+        }
+    ],
+    "version": "2.0.0"
+}

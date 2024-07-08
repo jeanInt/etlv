@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <stdlib.h> // 添加这一行来声明system函数
 
 #define etlv_printf printf
 #define etlv_print_hex print_hex
@@ -182,5 +183,6 @@ int main()
     assert(err == 263);
     assert(0 == memcmp(&t[1], &needle, sizeof(needle)));
     printf(" - TEST PASS\n\r");
+    system("pause");    // 防止运行后自动退出，需头文件stdlib.h
 }
 
